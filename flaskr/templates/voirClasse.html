@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content%}
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Prnom</th>
+                <th>Nom Classe</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for eleve in eleves %}
+            <tr>
+                <td>{{eleve['id']}}</td>
+                <td>{{eleve['prenom']}}</td>
+                <td>{{eleve['nom']}}</td>
+                <td>{{eleve['age']}}</td>
+                <td>
+                    <a type="button" href="/modifier/eleve/{{eleve['id']}}/{{classe_id}}" class="btn btn-sm btn-warning">modifier</a>
+                    <a type="button" href="/supprimer/eleve/{{eleve['id']}}/{{classe_id}}" class="btn btn-sm  btn-danger">supprimer</a>
+                </td>
+            </tr>
+            {% endfor %} 
+        </tbody>
+    </table>
+    <a type="button" href="/inscrire" class="btn btn-success">Ajouter Nouveau Eleve</a>
+    {% endblock %}

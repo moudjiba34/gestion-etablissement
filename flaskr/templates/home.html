@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content%}
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Niveau</th>
+                <th>Nom Classe</th>
+                <th>Capacite</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for classe in classes %}
+            <tr>
+                <td>{{classe['id']}}</td>
+                <td>{{classe['niveau']}}</td>
+                <td>{{classe['designation']}}</td>
+                <td>{{classe['capacite']}}</td>
+                <td>
+                    <a type="button" href="/classe/{{classe['id']}}" class="btn btn-sm btn-primary">voir</a>
+                    <a type="button" href="/modifier/{{classe['id']}}" class="btn btn-sm btn-warning">modifier</a>
+                    <a type="button" href="/supprimer/{{classe['id']}}" class="btn btn-sm  btn-danger">supprimer</a>
+                </td>
+            </tr>
+            {% endfor %} 
+        </tbody>
+    </table>
+    <a type="button" href="/ajouter" class="btn btn-success">Ajouter Nouvelle Classe</a>
+    {% endblock %}
